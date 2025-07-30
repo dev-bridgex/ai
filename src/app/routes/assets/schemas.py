@@ -100,9 +100,9 @@ class KnowledgeBaseProcessRequest(BaseModel):
     and whether existing chunks should be replaced.
     """
     chunk_size: Optional[int] = Field(
-        default=500,
+        default=1000,
         gt=0,
-        le=1000,
+        le=2000,
         description="Size of text chunks in characters. Larger chunks provide more context but may reduce relevance precision. "
                     "Recommended values: 300-1000 for short documents, 600-1500 for longer documents.",
         example=500
@@ -144,9 +144,9 @@ class KnowledgeBaseProcessRequest(BaseModel):
     )
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
-                "chunk_size": 500,
+                "chunk_size": 1000,
                 "overlap_size": 50,
                 "do_reset": False,
                 "reset_vector_db": False,
@@ -164,9 +164,9 @@ class AssetProcessRequest(BaseModel):
     and whether existing chunks should be replaced.
     """
     chunk_size: Optional[int] = Field(
-        default=500,
+        default=1000,
         gt=0,
-        le=1000,
+        le=2000,
         description="Size of text chunks in characters. Larger chunks provide more context but may reduce relevance precision. "
                     "Recommended values: 300-1000 for short documents, 600-1500 for longer documents.",
         example=500
@@ -200,9 +200,9 @@ class AssetProcessRequest(BaseModel):
     )
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
-                "chunk_size": 500,
+                "chunk_size": 1000,
                 "overlap_size": 50,
                 "do_reset": False,
                 "reset_vector_db": False,
@@ -238,7 +238,7 @@ class AssetProcessResponse(BaseResponse):
     )
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "processed_files": 1,
                 "inserted_chunks": 42,
