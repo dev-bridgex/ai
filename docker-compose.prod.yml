@@ -1,6 +1,6 @@
 services:
   mongodb-bridgex:
-    image: docker.io/bitnami/mongodb:latest
+    image: docker.io/soldevelo/mongodb:latest
     container_name: mongodb-bridgex
     networks:
       - bridgex-network
